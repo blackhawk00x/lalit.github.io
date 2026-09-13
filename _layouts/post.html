@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<article>
+  <header class="post-head">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta">
+      {{ page.date | date: "%Y.%m.%d" }}
+      {% if page.tags and page.tags.size > 0 %}
+        &nbsp;·&nbsp;
+        {% for tag in page.tags %}{% if forloop.first == false %}, {% endif %}<a class="row__tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+      {% endif %}
+    </p>
+  </header>
+  <div class="post-content">
+    {{ content }}
+  </div>
+</article>

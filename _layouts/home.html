@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<header class="hero">
+  <p class="hero__eyebrow">blackhawk00x</p>
+  <h1 class="hero__statement">I Break <span class="accent">Things.</span></h1>
+  <p class="hero__sub">{{ site.description }}</p>
+  <hr class="hero__rule">
+</header>
+
+<section class="index" aria-label="writeups">
+  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year in posts_by_year %}
+    <div class="index__year">
+      <span class="index__year-num">{{ year.name }}</span>
+      <span class="index__year-rule"></span>
+      <span class="index__year-count">{{ year.items | size }}</span>
+    </div>
+    <ul class="index__rows">
+      {% for post in year.items %}
+        <li class="row">
+          <time class="row__date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+          <span class="row__bar" aria-hidden="true"></span>
+          <div class="row__content">
+            <a class="row__title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% if post.tags and post.tags.size > 0 %}
+            <p class="row__meta">
+              {% for tag in post.tags %}{% if forloop.first == false %}<span class="row__comma">,</span>{% endif %}<a class="row__tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+            </p>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</section>
