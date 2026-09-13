@@ -1,14 +1,14 @@
-title: blackhawk00x
+title: blackhawk0x
 tagline: security researcher & ctf player
 description: >-
-  Writeups, malware analysis, and reverse engineering notes by blackhawk00x.
-author: blackhawk00x
+  Writeups, malware analysis, and reverse engineering notes by blackhawk0x.
+author: blackhawk0x
 email: your_email@example.com
 
-url: "https://blackhawk00x.github.io"
+url: "https://blackhawk0x.github.io"
 baseurl: ""
 
-github_username: blackhawk00x
+github_username: blackhawk0x
 discord_username: ""
 
 # Build settings
